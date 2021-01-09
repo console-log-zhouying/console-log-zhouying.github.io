@@ -106,3 +106,8 @@ deploy:
   type: git
   repo: https://github.com/console-log-zhouying/console-log-zhouying.github.io.git
   branch: master
+
+# Security
+##
+encrypt:
+  enable: true
