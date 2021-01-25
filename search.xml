@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/01/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>需求总结</title>
     <url>/2021/01/09/%E9%9C%80%E6%B1%82%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -348,7 +334,7 @@
         <category>css</category>
       </categories>
       <tags>
-        <tag>css 性能优化</tag>
+        <tag>will-change</tag>
       </tags>
   </entry>
   <entry>
@@ -668,7 +654,7 @@ X-Real-IP: 1.1.1.1
         <category>TypeScript</category>
       </categories>
       <tags>
-        <tag>TypeScript TypeScript类型</tag>
+        <tag>TypeScript类型</tag>
       </tags>
   </entry>
   <entry>
@@ -720,7 +706,7 @@ X-Real-IP: 1.1.1.1
         <category>TypeScript</category>
       </categories>
       <tags>
-        <tag>TypeScript Flow</tag>
+        <tag>Flow</tag>
       </tags>
   </entry>
   <entry>
@@ -751,7 +737,7 @@ X-Real-IP: 1.1.1.1
         <category>TypeScript</category>
       </categories>
       <tags>
-        <tag>TypeScript 强类型弱类型优缺点</tag>
+        <tag>强类型弱类型优缺点</tag>
       </tags>
   </entry>
   <entry>
@@ -831,7 +817,7 @@ X-Real-IP: 1.1.1.1
         <category>TypeScript</category>
       </categories>
       <tags>
-        <tag>TypeScript TypeScript类型</tag>
+        <tag>TypeScript类型</tag>
       </tags>
   </entry>
   <entry>
@@ -865,7 +851,7 @@ X-Real-IP: 1.1.1.1
         <category>JS性能优化</category>
       </categories>
       <tags>
-        <tag>JS性能优化 内存管理</tag>
+        <tag>内存管理</tag>
       </tags>
   </entry>
   <entry>
@@ -975,7 +961,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>JS性能优化</category>
       </categories>
       <tags>
-        <tag>JS性能优化 Performance工具</tag>
+        <tag>Performance工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1066,13 +1052,8 @@ document.body.appendChild(fragEle)</code></pre>
         <category>JS性能优化</category>
       </categories>
       <tags>
-        <tag>JS性能优化 垃圾回收</tag>
+        <tag>垃圾回收</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>test</title>
-    <url>/2021/01/16/test/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>垃圾回收与常见GC算法</title>
@@ -1184,7 +1165,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>JS性能优化</category>
       </categories>
       <tags>
-        <tag>JS性能优化 垃圾回收 GC算法</tag>
+        <tag>垃圾回收、GC算法</tag>
       </tags>
   </entry>
   <entry>
@@ -1203,7 +1184,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>react</category>
       </categories>
       <tags>
-        <tag>react 父组件调用子组件</tag>
+        <tag>父组件调用子组件</tag>
       </tags>
   </entry>
   <entry>
@@ -1299,7 +1280,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>css</category>
       </categories>
       <tags>
-        <tag>css 样式冲突</tag>
+        <tag>样式冲突</tag>
       </tags>
   </entry>
   <entry>
@@ -1339,7 +1320,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>encodeURI encodeURIComponent</tag>
+        <tag>encodeURI、encodeURIComponent</tag>
       </tags>
   </entry>
   <entry>
@@ -1412,7 +1393,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>memory-cache disk-cache</tag>
+        <tag>memory-cache、disk-cache</tag>
       </tags>
   </entry>
   <entry>
@@ -1509,10 +1490,10 @@ document.body.appendChild(fragEle)</code></pre>
 <p>sudo su 和  su xxx 切换时不会切换环境变量</p>
 ]]></content>
       <categories>
-        <category>JS性能优化</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>JS性能优化 垃圾回收 GC算法</tag>
+        <tag>sudo</tag>
       </tags>
   </entry>
   <entry>
@@ -1635,7 +1616,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>测试框架</category>
       </categories>
       <tags>
-        <tag>测试框架 Jest</tag>
+        <tag>Jest</tag>
       </tags>
   </entry>
   <entry>
@@ -1687,7 +1668,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>测试框架</category>
       </categories>
       <tags>
-        <tag>测试框架 TDD BDD</tag>
+        <tag>TDD、BDD</tag>
       </tags>
   </entry>
   <entry>
@@ -1770,7 +1751,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>git 工具</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -1803,7 +1784,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>微信小程序</category>
       </categories>
       <tags>
-        <tag>小程序 踩坑</tag>
+        <tag>踩坑</tag>
       </tags>
   </entry>
   <entry>
@@ -1864,7 +1845,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>css</category>
       </categories>
       <tags>
-        <tag>css object-fit</tag>
+        <tag>object-fit</tag>
       </tags>
   </entry>
   <entry>
@@ -1896,7 +1877,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>deeplink url</tag>
+        <tag>deeplink</tag>
       </tags>
   </entry>
   <entry>
@@ -1946,7 +1927,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>scheme url</tag>
+        <tag>scheme</tag>
       </tags>
   </entry>
   <entry>
@@ -1975,7 +1956,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>Universal-Link url</tag>
+        <tag>Universal-Link</tag>
       </tags>
   </entry>
   <entry>
@@ -2035,7 +2016,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>URL URI URN url</tag>
+        <tag>URL URI URN</tag>
       </tags>
   </entry>
   <entry>
@@ -2075,7 +2056,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>Js</category>
       </categories>
       <tags>
-        <tag>Js 柯里化</tag>
+        <tag>柯里化</tag>
       </tags>
   </entry>
   <entry>
@@ -2189,7 +2170,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>Js</category>
       </categories>
       <tags>
-        <tag>函数式编程 Js</tag>
+        <tag>函数式编程</tag>
       </tags>
   </entry>
   <entry>
@@ -2213,7 +2194,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>node</category>
       </categories>
       <tags>
-        <tag>node nodemon</tag>
+        <tag>nodemon</tag>
       </tags>
   </entry>
   <entry>
@@ -2244,7 +2225,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>node</category>
       </categories>
       <tags>
-        <tag>node 错误处理</tag>
+        <tag>错误处理</tag>
       </tags>
   </entry>
   <entry>
@@ -2289,7 +2270,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>Js</category>
       </categories>
       <tags>
-        <tag>Js q Bluebird</tag>
+        <tag>q、Bluebird</tag>
       </tags>
   </entry>
   <entry>
@@ -2308,7 +2289,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>node</category>
       </categories>
       <tags>
-        <tag>node require.extensions</tag>
+        <tag>require.extensions</tag>
       </tags>
   </entry>
   <entry>
@@ -2341,7 +2322,7 @@ document.body.appendChild(fragEle)</code></pre>
         <category>Js</category>
       </categories>
       <tags>
-        <tag>Js 数组去重</tag>
+        <tag>数组去重</tag>
       </tags>
   </entry>
   <entry>
