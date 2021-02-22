@@ -1,7 +1,7 @@
 ---
 title: encodeURI 和 encodeURIComponent
 categories: 计算机基础
-tags: encodeURI encodeURIComponent
+tags: encodeURI、encodeURIComponent
 ---
 
 |   比较   | encodeURI( )                                                 | encodeURIComponent( )                                        |

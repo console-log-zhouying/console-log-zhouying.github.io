@@ -1,7 +1,7 @@
 ---
 title: node的错误处理方式
 categories: node
-tags: node 错误处理
+tags: 错误处理
 ---
 
 #### 一、为什么要处理异常

@@ -1,7 +1,7 @@
 ---
 title: Flow静态类型检查方案
 categories: TypeScript
-tags: TypeScript Flow
+tags: Flow
 ---
 
 #### 一、工作原理

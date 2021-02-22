@@ -1,7 +1,7 @@
 ---
 title: require.extensions
 categories: node
-tags: node require.extensions
+tags: require.extensions
 ---
 
 - 作用：自定义模块后缀

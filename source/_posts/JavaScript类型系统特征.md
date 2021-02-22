@@ -1,7 +1,7 @@
 ---
 title: JavaScript类型系统特征
 categories: TypeScript
-tags: TypeScript 强类型弱类型优缺点
+tags: 强类型弱类型优缺点
 ---
 
 #### 一、弱类型的问题

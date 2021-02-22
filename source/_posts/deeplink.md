@@ -1,7 +1,7 @@
 ---
 title: deeplink
 categories: 计算机基础
-tags: deeplink url
+tags: deeplink
 ---
 
 #### 一、deeplink是什么

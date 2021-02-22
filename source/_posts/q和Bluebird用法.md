@@ -1,7 +1,7 @@
 ---
 title: q 和 Bluebird 用法
 categories: Js
-tags: Js q Bluebird
+tags: q、Bluebird
 ---
 
 #### 一、这两个类库是什么？有什么作用？

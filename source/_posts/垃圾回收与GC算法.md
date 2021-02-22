@@ -1,7 +1,7 @@
 ---
 title: 垃圾回收与常见GC算法
 categories: JS性能优化
-tags: JS性能优化 垃圾回收 GC算法
+tags: 垃圾回收、GC算法
 ---
 
 #### 一、垃圾回收

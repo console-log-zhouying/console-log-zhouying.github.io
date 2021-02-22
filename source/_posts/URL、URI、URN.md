@@ -1,7 +1,7 @@
 ---
 title: URL、URI、URN
 categories: 计算机基础
-tags: URL URI URN url
+tags: URL URI URN
 ---
 
 #### 一、三者的定义

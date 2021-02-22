@@ -1,7 +1,7 @@
 ---
 title: git常见命令
 categories: 工具
-tags: git 工具
+tags: git
 ---
 
 1、创建分支的两种命令

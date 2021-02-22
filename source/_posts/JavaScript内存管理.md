@@ -1,7 +1,7 @@
 ---
 title: JavaScript内存管理
 categories: JS性能优化
-tags: JS性能优化 内存管理
+tags: 内存管理
 ---
 
 #### 一、介绍

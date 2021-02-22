@@ -1,7 +1,7 @@
 ---
 title: scheme
 categories: 计算机基础
-tags: scheme url
+tags: scheme
 ---
 
 #### 一、是什么？

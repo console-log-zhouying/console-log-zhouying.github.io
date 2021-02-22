@@ -1,7 +1,7 @@
 ---
 title: nodemon
 categories: node
-tags: node nodemon
+tags: nodemon
 ---
 
 - 配置文件

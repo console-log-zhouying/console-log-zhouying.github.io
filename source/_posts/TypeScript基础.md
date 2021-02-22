@@ -1,7 +1,7 @@
 ---
 title: TypeScript基础
 categories: TypeScript
-tags: TypeScript TypeScript类型
+tags: TypeScript类型
 ---
 
 #### 一、作用域问题

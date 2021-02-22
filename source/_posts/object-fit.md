@@ -1,7 +1,7 @@
 ---
 title: object-fit
 categories: css
-tags: css object-fit
+tags: object-fit
 ---
 
 1. 作用：图片以何种形式在被包裹的div中展示

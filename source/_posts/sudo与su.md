@@ -1,7 +1,7 @@
 ---
 title: sudo 与 su
-categories: JS性能优化
-tags: JS性能优化 垃圾回收 GC算法
+categories: 计算机基础
+tags: sudo
 ---
 
 sudo : 暂时切换到超级用户模式以执行超级用户权限，提示输入密码时该密码为当前用户的密码，而不是超级账户的密码。不过有时间限制，Ubuntu默认为一次时长15分钟。

@@ -1,7 +1,7 @@
 ---
 title: Performance工具
 categories: JS性能优化
-tags: JS性能优化 Performance工具
+tags: Performance工具
 ---
 
 #### 一、为什么使用Performance

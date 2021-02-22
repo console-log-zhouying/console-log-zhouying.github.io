@@ -1,7 +1,7 @@
 ---
 title: from memory cache 与 from disk cache
 categories: 计算机基础
-tags: memory-cache disk-cache
+tags: memory-cache、disk-cache
 ---
 
 ![1-1](1-1.png)

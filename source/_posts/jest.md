@@ -1,7 +1,7 @@
 ---
 title: Jest
 categories: 测试框架
-tags: 测试框架 Jest
+tags: Jest
 ---
 
 ##### 一、jest优点

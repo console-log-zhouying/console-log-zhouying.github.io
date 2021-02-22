@@ -1,7 +1,7 @@
 ---
 title: Universal Link
 categories: 计算机基础
-tags: Universal-Link url
+tags: Universal-Link
 ---
 
 #### 一、Universal Link是什么？

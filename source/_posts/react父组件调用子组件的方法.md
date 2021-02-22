@@ -1,7 +1,7 @@
 ---
 title: react父组件调用子组件的方法
 categories: react
-tags: react 父组件调用子组件
+tags: 父组件调用子组件
 ---
 
 - 父组件

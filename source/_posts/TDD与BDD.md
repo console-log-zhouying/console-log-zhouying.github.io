@@ -1,7 +1,7 @@
 ---
 title: TDD 与 BDD
 categories: 测试框架
-tags: 测试框架 TDD BDD
+tags: TDD、BDD
 ---
 
 ##### 一、TDD开发流程
