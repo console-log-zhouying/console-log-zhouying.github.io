@@ -187,6 +187,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
@@ -203,26 +213,6 @@
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -293,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/09/%E9%9C%80%E6%B1%82%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/25/%E6%9B%B4%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84nodejs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -312,7 +302,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/01/09/%E9%9C%80%E6%B1%82%E6%80%BB%E7%BB%93/" itemprop="url">需求总结</a></h1>
+                <a class="post-title-link" href="/2021/01/25/%E6%9B%B4%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84nodejs/" itemprop="url">狼叔 — 更了不起的nodejs（卷一）</a></h1>
         
 
         <div class="post-meta">
@@ -324,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-09T16:21:38+08:00">
-                2021-01-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-25T17:10:56+08:00">
+                2021-01-25
               </time>
             
 
@@ -347,8 +337,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9C%80%E6%B1%82%E6%80%BB%E7%BB%93/" itemprop="url" rel="index">
-                    <span itemprop="name">需求总结</span>
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
                   </a>
                 </span>
 
@@ -378,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8
+                  2,658
                 </span>
               
 
@@ -394,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  10
                 </span>
               
             </div>
@@ -416,10 +406,20 @@
 
       
         
-          Welcome to my blog, enter password to read.
+          <h4 id="第一章-nodejs初识"><a href="#第一章-nodejs初识" class="headerlink" title="第一章  nodejs初识"></a>第一章  nodejs初识</h4><ol>
+<li><h5 id="nodejs是javascript的运行环境"><a href="#nodejs是javascript的运行环境" class="headerlink" title="nodejs是javascript的运行环境"></a><code>nodejs</code>是<code>javascript</code>的运行环境</h5></li>
+<li><h5 id="JavaScript语言的一大特点是单线程，即同一时间只能做一件事"><a href="#JavaScript语言的一大特点是单线程，即同一时间只能做一件事" class="headerlink" title="JavaScript语言的一大特点是单线程，即同一时间只能做一件事"></a><code>JavaScript</code>语言的一大特点是单线程，即同一时间只能做一件事</h5><ul>
+<li><code>js</code>只能在一个线程上运行。也就是说<code>js</code>同时只能执行一个任务，其他任务都必须在后面排队等待。但这并不意味着<code>js</code>只有一个线程。<code>js</code>有多个线程，单个脚本只能在一个线程上运行，其他线程都是在后台配合的。</li>
+<li>所谓的单线程，是指在<code>js</code>引擎中负责解释和执行js代码的线程只有一个</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>首先，主线程会执行同步任务，当主线程遇到异步任务，指给对应的模块进行处理（WEB API），当达到指定的触发条件，相应的回掉函数被放入任务队列；等到同步任务全部执行完，就会去看任务队列里面的异步任务。如果满足条件，那么异步任务就重新进入主线程开始执行，这时它就变成同步任务了。等到执行完，下一个异步任务再进入主线程开始执行。一旦任务队列清空，程序就结束执行。</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2021/01/09/%E9%9C%80%E6%B1%82%E6%80%BB%E7%BB%93/#more" rel="contents">
+            <a class="btn" href="/2021/01/25/%E6%9B%B4%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84nodejs/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -470,7 +470,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/02/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/25/node%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -489,7 +489,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/01/02/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2021/01/25/node%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/" itemprop="url">node的错误处理方式</a></h1>
         
 
         <div class="post-meta">
@@ -501,8 +501,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-02T19:25:14+08:00">
-                2021-01-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-25T17:09:22+08:00">
+                2021-01-25
               </time>
             
 
@@ -511,6 +511,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -533,7 +555,189 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  78
+                  357
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="一、为什么要处理异常"><a href="#一、为什么要处理异常" class="headerlink" title="一、为什么要处理异常"></a>一、为什么要处理异常</h4><ol>
+<li><p>不处理直接导致程序奔溃，这显然不是我们想要的</p>
+</li>
+<li><p>导致请求无法被释放，直至连接超时。用户体验体验非常差，我们要做的应该是在出错时，给用户一个友好的提示，并记录下此次异常，以便排查。</p>
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/01/25/node%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/25/require.extensions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/25/require.extensions/" itemprop="url">require.extensions</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-25T17:07:45+08:00">
+                2021-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  92
                 </span>
               
 
@@ -572,17 +776,1310 @@
       
         
           
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+            <ul>
+<li><p>作用：自定义模块后缀</p>
+</li>
+<li><p>遗憾的是官方提示弃用了这个属性，不过值得庆幸的是，这个属性永远不会被移除，只是不推荐使用而已。</p>
+</li>
+<li><p>使用举例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.extensions[<span class="string">&#x27;.json&#x27;</span>] = <span class="function"><span class="keyword">function</span>(<span class="params"><span class="built_in">module</span>, filename</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> content = fs.readFileSync(filename, <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="built_in">module</span>.exports = <span class="built_in">JSON</span>.parse(content);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    err.message = filename + <span class="string">&#x27;: &#x27;</span> + err.message;</span><br><span class="line">    <span class="keyword">throw</span> err;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
           
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/25/nodemon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/25/nodemon/" itemprop="url">nodemon</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-25T17:06:47+08:00">
+                2021-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  357
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>配置文件</p>
+<ul>
+<li><p>支持配置文件(<code>nodemon.js</code>)，也支持把配置写在<code>package.json</code>文件里</p>
+</li>
+<li><p>如果写在<code>package.json</code>里，必须在<code>nodemonConfig</code>标签下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">.........</span><br><span class="line"><span class="string">&quot;nodemonConfig&quot;</span>:&#123;</span><br><span class="line">     <span class="string">&quot;ignore&quot;</span>:[<span class="string">&quot;test/*&quot;</span>,<span class="string">&quot;docs/*&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">.........</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>配置项</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;restartable&quot;</span>:<span class="string">&quot;rs&quot;</span>,<span class="comment">//重启的命令，默认是 rs</span></span><br><span class="line">  <span class="attr">&quot;ignore&quot;</span>:[<span class="string">&quot;&quot;</span>],<span class="comment">//忽略的文件后缀名或者文件夹，文件路径的书写用相对于 nodemon.json 所在位置的相对路径</span></span><br><span class="line">  <span class="attr">&quot;verbose&quot;</span>: <span class="literal">true</span>, <span class="comment">//表示输出详细启动与重启信息</span></span><br><span class="line">  <span class="attr">&quot;execMap&quot;</span>:&#123;</span><br><span class="line">      <span class="attr">&quot;&quot;</span>:<span class="string">&quot;node&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;gulp test&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;events&quot;</span>:&#123;</span><br><span class="line">    <span class="attr">&quot;start&quot;</span>:<span class="string">&quot;gulp&quot;</span>, <span class="comment">//子进程（即监控的应用）启动</span></span><br><span class="line">    <span class="attr">&quot;crash&quot;</span>:<span class="string">&quot;&quot;</span>,  <span class="comment">//子进程崩溃，不会触发 exit</span></span><br><span class="line">    <span class="attr">&quot;exit&quot;</span>:<span class="string">&quot;&quot;</span>, <span class="comment">//子进程完全退出，不是非正常的崩溃</span></span><br><span class="line">    <span class="attr">&quot;restart&quot;</span>:<span class="string">&quot;gulp&quot;</span>, <span class="comment">//子进程重启</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;ext&quot;</span>: <span class="string">&quot;js json&quot;</span>,<span class="comment">//监控指定后缀名的文件，用空格间隔。默认监控的后缀文件：.js, .coffee, .litcoffee, .json。但是对于没有文件后缀的文件，比如 www 文件，我暂时找不到怎么用 nodemon 去监控，就算在 watch 中包含了，nodemon 也会忽略掉</span></span><br><span class="line">  <span class="attr">&quot;watch&quot;</span>:[</span><br><span class="line">    <span class="string">&quot;./src/**&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;env&quot;</span>:&#123;</span><br><span class="line">    <span class="attr">&quot;NODE_ENV&quot;</span>:<span class="string">&quot;env&quot;</span>, <span class="comment">//  env： 是开发环境; 运行环境 development; production 是生产环境</span></span><br><span class="line">    <span class="attr">&quot;PORT&quot;</span>:<span class="string">&quot;3000&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;legacy-watch&quot;</span>:<span class="literal">false</span> <span class="comment">//nodemon 使用 Chokidar 作为底层监控系统，但是如果监控失效，或者提示没有需要监控的文件时，就需要使用轮询模式（polling mode），即设置 legacy-watch 为 true，也可以在命令行中指定</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/25/try%E3%80%81catch%E3%80%81finally/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/25/try%E3%80%81catch%E3%80%81finally/" itemprop="url">try、catch、finally</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-25T17:03:56+08:00">
+                2021-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Js/" itemprop="url" rel="index">
+                    <span itemprop="name">Js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  85
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>不管有没有异常，<code>finally</code>中的代码都会执行</li>
+<li>当<code>try</code>、<code>catch</code>中有<code>return</code>时，<code>finally</code>中的代码依然会继续执行</li>
+<li>方法的返回值在<code>finally</code>运算之前就确定了</li>
+<li><code>finally</code>代码中最好不要包含<code>return</code>，程序会提前退出，也就是说返回的值不是<code>try</code>或<code>catch</code>的值</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/25/q%E5%92%8CBluebird%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/25/q%E5%92%8CBluebird%E7%94%A8%E6%B3%95/" itemprop="url">q 和 Bluebird 用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-25T17:02:03+08:00">
+                2021-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Js/" itemprop="url" rel="index">
+                    <span itemprop="name">Js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  628
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="一、这两个类库是什么？有什么作用？"><a href="#一、这两个类库是什么？有什么作用？" class="headerlink" title="一、这两个类库是什么？有什么作用？"></a>一、这两个类库是什么？有什么作用？</h4><ol>
+<li>两个类库都是基于<code>promise</code>封装的库，方便我们在项目实战中能够方便采用<code>promise</code>处理异步</li>
+<li>可以提高<code>promise</code>的性能，也扩展了<code>promise</code>的一些用法</li>
+</ol>
+<h4 id="二、Q"><a href="#二、Q" class="headerlink" title="二、Q"></a>二、Q</h4><p>安装: <code>npm install q --save</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let Q &#x3D; require(&#39;q&#39;);</span><br><span class="line">let p &#x3D; new Promise(function(resolve,reject)&#123;</span><br><span class="line">    resolve(&#39;hello,promise&#39;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>Q</code>的<code>all</code>方法 和<code>Promise.all</code>方法一样，都是等待多个异步请求结果，在做出操作</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Q.all([p,p,p]).then(([a,b,c])&#x3D;&gt;&#123;console.log(a,b,c)&#125;);</span><br><span class="line">Promise.all([p,p,p]).then(([a,b,c])&#x3D;&gt;&#123;console.log(a,b,c)&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>Q</code>的<code>fcall</code>方法，将一个同步的函数，转换为一个成功的<code>promise</code>对象，支持调用<code>then</code>方法，并且可以把同步函数的返回值，传入<code>then</code>的成功回调中作为参数。<br>它和<code>Promise</code>对象的<code>resolve</code>方法，不太一样。<code>Promise</code>的<code>resolve</code>方法，也是生成一个成功的<code>promise</code>对象，但是确是将<code>resolve</code>的参数传入<code>promise</code>对象成功回调中作为成功回调参数。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Q.fcall(function()&#123;return &#39;123&#39;&#125;).then(res&#x3D;&gt;&#123;console.log(res)&#125;);</span><br><span class="line">Promise.resolve(function()&#123;return &#39;123&#39;&#125;).then(res&#x3D;&gt;&#123;console.log(res)&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>defer</code>对象和 <code>promise</code>的<code>defer</code>处理方式和调用方式相同。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">function readFile(path)&#123;</span><br><span class="line">    let defer &#x3D; Q.defer();</span><br><span class="line">    fs.readFile(path,&#39;utf8&#39;,function(err,data)&#123;</span><br><span class="line">        err?defer.reject(err): defer.resolve(data);</span><br><span class="line">    &#125;)</span><br><span class="line">    return defer.promise;</span><br><span class="line">&#125;</span><br><span class="line">readFile(&#39;.&#x2F;1.txt&#39;).then(res&#x3D;&gt;&#123;console.log(res)&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="三、Bluebird"><a href="#三、Bluebird" class="headerlink" title="三、Bluebird"></a>三、Bluebird</h4><ul>
+<li>上面<code>q</code>库主要是对原有<code>promise</code>方法 进行了封装和改造，<code>bluebird</code>库 主要是对<code>promise</code>原有功能进行了扩展，主要是添加了 <code>promisify</code>和<code>promisifyAll</code>两个方法，可以将异步方法<code>promise</code>化。</li>
+</ul>
+<p>安装 <code>npm intall bluebird --save</code></p>
+<ol>
+<li><code>promisify</code> 将一个异步方法<code>promise</code>化</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let blueBird &#x3D; require(&#39;bluebird&#39;);</span><br><span class="line">let read &#x3D; blueBird.promisify(fs.readFile);</span><br><span class="line">read(&#39;.&#x2F;2.txt&#39;,&#39;utf8&#39;).then(res&#x3D;&gt;&#123;console.log(res)&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>promisify</code> 的实现原理，就是利用高阶函数返回一个函数的特性，完成一个<code>promise</code>实例的封装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function myPrimisify (fn)&#123;</span><br><span class="line">    return function (...args)&#123;</span><br><span class="line">       return new Promise(function(resolve,reject)&#123;</span><br><span class="line">                fn(...args,function(err,data)&#123;</span><br><span class="line">                    err?reject(err):resolve(data)</span><br><span class="line">                &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let read2 &#x3D; myPrimisify(fs.readFile);</span><br><span class="line">read2(&#39;.&#x2F;2.txt&#39;,&#39;utf8&#39;).then(res&#x3D;&gt;&#123;console.log(res)&#125;);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>promisifyAll</code> 将一个对象上面所有的方法，都<code>promise</code>化，生成一个属性名为‘原有方法’+‘<code>Async</code>’的方法，都可以支持异步方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blueBird.promisifyAll(fs);</span><br><span class="line">fs.readFileAsync(&#39;.&#x2F;2.txt&#39;,&#39;utf8&#39;).then(res&#x3D;&gt;&#123;console.log(res)&#125;);</span><br></pre></td></tr></table></figure>
+<p>实现原理:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function myPromisifyAll(obj)&#123;</span><br><span class="line">    Object.keys(obj).forEach((item,index)&#x3D;&gt;&#123;</span><br><span class="line">        if(typeof obj[item]&#x3D;&#x3D;&#39;function&#39;)</span><br><span class="line">        obj[item+&#39;Async&#39;]  &#x3D;myPrimisify(obj[item])</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">myPromisifyAll(fs);</span><br><span class="line">fs.readFileAsync(&#39;.&#x2F;2.txt&#39;,&#39;utf8&#39;).then(res&#x3D;&gt;&#123;console.log(res)&#125;);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/25/%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/25/%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" itemprop="url">对象数组去重</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-25T17:01:01+08:00">
+                2021-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Js/" itemprop="url" rel="index">
+                    <span itemprop="name">Js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  143
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>比如说：json数组，每个json都有id，根据id去重</p>
+<p>一、用lodash的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.uniqBy([&#123; <span class="string">&#x27;x&#x27;</span>: <span class="number">1</span> &#125;, &#123; <span class="string">&#x27;x&#x27;</span>: <span class="number">2</span> &#125;, &#123; <span class="string">&#x27;x&#x27;</span>: <span class="number">1</span> &#125;], <span class="string">&#x27;x&#x27;</span>);</span><br><span class="line"><span class="comment">// =&gt; [&#123; &#x27;x&#x27;: 1 &#125;, &#123; &#x27;x&#x27;: 2 &#125;]</span></span><br></pre></td></tr></table></figure>
+
+<p>二、借助对象去重</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;ZYTX&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="string">&quot;Y13xG_4wQnOWK1QwJLgg11d0pS4hewePU95UHtpMl3eE81uS74NC-6zu-Rtnw4Ix&quot;</span>,</span><br><span class="line">    <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;AAAAAA.doc&quot;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;ZYTA&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="string">&quot;Y13xG_4wQnOWK1QwJLgg11d0pS4hewePU95UHtpMl3eE81uS74NC-6zu-Rtnw4Ix&quot;</span>,</span><br><span class="line">    <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;BBBBBB.doc&quot;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;ZDTX&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="string">&quot;Y13xG_4wQnOWK1QwJLgg11d0pS4hewePU95UHtpMl3eE81uS74NC-6zu-Rtnw4Ix&quot;</span>,</span><br><span class="line">    <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;CCCCCC.doc&quot;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;ZYTX&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>: <span class="string">&quot;Y13xG_4wQnOWK1QwJLgg11d0pS4hewePU95UHtpMl3eE81uS74NC-6zu-Rtnw4Ix&quot;</span>,</span><br><span class="line">    <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;AAAAAA.doc&quot;</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="keyword">var</span> hash = &#123;&#125;;</span><br><span class="line">arr = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">item, next</span>) </span>&#123;  <span class="comment">// reduce四个参数：累计值、当前元素、当前索引、原数组</span></span><br><span class="line">    hash[next.name] ? <span class="string">&#x27;&#x27;</span> : hash[next.name] = <span class="literal">true</span> &amp;&amp; item.push(next);</span><br><span class="line">    <span class="keyword">return</span> item</span><br><span class="line">&#125;, [])</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/17/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/17/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" itemprop="url">函数式编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-17T17:53:01+08:00">
+                2021-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Js/" itemprop="url" rel="index">
+                    <span itemprop="name">Js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,403
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h4><ul>
+<li><p>“函数式编程”是一种编程范式，也就是如何编写程序的方法论。它属于结构化编程的一种，主要思想是把运算过程尽量写成一系列嵌套的函数调用</p>
+</li>
+<li><p>举例：(1 + 2) * 3 - 4</p>
+<ul>
+<li><p>过程式编程</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> + <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = a * <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = b - <span class="number">4</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>函数式编程</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = subtract(multiply(add(<span class="number">1</span>,<span class="number">2</span>), <span class="number">3</span>), <span class="number">4</span>);</span><br></pre></td></tr></table></figure></li></ul></li></ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/01/17/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/17/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/17/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" itemprop="url">函数柯里化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-17T17:50:43+08:00">
+                2021-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Js/" itemprop="url" rel="index">
+                    <span itemprop="name">Js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  321
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h4><ul>
+<li><p>只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数</p>
+</li>
+<li><p>换而言之，<strong>所谓”柯里化”，就是把一个多参数的函数，转化为单参数函数。</strong>将一个函数转换为一个新的函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非柯里化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>) === <span class="number">3</span>; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 柯里化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addX</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addX(<span class="number">2</span>)(<span class="number">1</span>) == <span class="number">3</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li></ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/01/17/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/17/URL%E3%80%81URI%E3%80%81URN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/17/URL%E3%80%81URI%E3%80%81URN/" itemprop="url">URL、URI、URN</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-17T17:47:22+08:00">
+                2021-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  478
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="一、三者的定义"><a href="#一、三者的定义" class="headerlink" title="一、三者的定义"></a>一、三者的定义</h4><ul>
+<li><strong>URI</strong>：统一资源标识符，根据某一种规则将一个资源独一无二地标识出来。</li>
+<li><strong>URL</strong>：统一资源定位符，它是一种具体的URI，即URL可以用来标识一个资源，而且还指明了如何定位这个资源。</li>
+<li><strong>URN</strong>：统一资源名称。</li>
+</ul>
+<h4 id="二、三者的关系"><a href="#二、三者的关系" class="headerlink" title="二、三者的关系"></a>二、三者的关系</h4><p><img src="/2021/01/17/URL%E3%80%81URI%E3%80%81URN/1-1.png" alt="1-1"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/01/17/URL%E3%80%81URI%E3%80%81URN/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -619,6 +2116,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -666,7 +2167,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -677,12 +2178,21 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -747,7 +2257,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">86</span>
+    <span title="Site words total count">26.1k</span>
   
 </div>
 

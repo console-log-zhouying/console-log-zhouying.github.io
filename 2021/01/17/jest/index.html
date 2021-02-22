@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Jest," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、jest优点 Jest 可以利用其特有的快照测试功能，通过比对 UI 代码生成的快照文件，实现对 React 等常见框架的自动测试。此外， Jest 的测试用例是并行执行的，而且只执行发生改变的文件所对应的测试，提升了测试速度。 安装配置简单，非常容易上手，几乎是零配置的，通过npm 命令安装就可以直接运行了。 Jest 内置了测试覆盖率工具istanbul，可以通过命令开启或者在 packa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jest">
+<meta property="og:url" content="http://example.com/2021/01/17/jest/index.html">
+<meta property="og:site_name" content="周周的博客">
+<meta property="og:description" content="一、jest优点 Jest 可以利用其特有的快照测试功能，通过比对 UI 代码生成的快照文件，实现对 React 等常见框架的自动测试。此外， Jest 的测试用例是并行执行的，而且只执行发生改变的文件所对应的测试，提升了测试速度。 安装配置简单，非常容易上手，几乎是零配置的，通过npm 命令安装就可以直接运行了。 Jest 内置了测试覆盖率工具istanbul，可以通过命令开启或者在 packa">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-01-17T09:20:15.576Z">
+<meta property="article:modified_time" content="2021-01-25T09:21:02.611Z">
+<meta property="article:author" content="周周">
+<meta property="article:tag" content="Jest">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/01/17/jest/"/>
+
+
+
+
+
+  <title>Jest | 周周的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">周周的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/17/jest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周周的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Jest</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-17T17:20:15+08:00">
+                2021-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index">
+                    <span itemprop="name">测试框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,273
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="一、jest优点"><a href="#一、jest优点" class="headerlink" title="一、jest优点"></a>一、jest优点</h5><ul>
+<li><code>Jest </code>可以利用其特有的快照测试功能，通过比对 UI 代码生成的快照文件，实现对 React 等常见框架的自动测试。此外， Jest 的测试用例是并行执行的，而且只执行发生改变的文件所对应的测试，提升了测试速度。</li>
+<li>安装配置简单，非常容易上手，几乎是零配置的，通过npm 命令安装就可以直接运行了。</li>
+<li><code>Jest </code>内置了测试覆盖率工具istanbul，可以通过命令开启或者在 <code>package.json</code> 文件进行更详细的配置。运行 istanbul 除了会再终端展示测试覆盖率情况，还会在项目下生产一个 coverage 目录，内附一个测试覆盖率的报告，让我们可以清晰看到分支的代码的测试情况。</li>
+<li>集成了断言库，不需要再引入第三方的断言库，并且非常完美的支持React组件化测试。</li>
+</ul>
+<a id="more"></a>
+
+<h5 id="二、jest匹配器"><a href="#二、jest匹配器" class="headerlink" title="二、jest匹配器"></a>二、jest匹配器</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">expect(<span class="number">1</span> + <span class="number">2</span>).toBe(<span class="number">3</span>); <span class="comment">// 精确匹配</span></span><br><span class="line">expect(&#123;<span class="attr">one</span>: <span class="number">1</span>&#125;).toEqual(&#123; <span class="attr">one</span>: <span class="number">1</span> &#125;); <span class="comment">// 深度匹配</span></span><br><span class="line">expect(<span class="literal">null</span>).toBeNull(); <span class="comment">// Null匹配</span></span><br><span class="line">expect(<span class="literal">undefined</span>).toBeUndefined(); <span class="comment">// undefined 匹配</span></span><br><span class="line">expect(<span class="keyword">var</span>).toBeDefined(); <span class="comment">// var是否定义</span></span><br><span class="line">expect(<span class="literal">true</span>).toBeTruthy(); <span class="comment">// true 匹配</span></span><br><span class="line">expect(<span class="literal">false</span>).toBeFalsy(); <span class="comment">// false 匹配</span></span><br><span class="line">expect(<span class="literal">false</span>).not.toBe(<span class="literal">true</span>); <span class="comment">// 取反匹配</span></span><br><span class="line">expect(<span class="number">1</span>).toBeGreaterThan(<span class="number">0</span>); <span class="comment">// 大于</span></span><br><span class="line">expect(<span class="number">1</span>).toBeLessThan(<span class="number">2</span>); <span class="comment">// 小于</span></span><br><span class="line">expect(<span class="number">1</span>).toBeGreaterThanOrEqual(<span class="number">1</span>); <span class="comment">// 大于等于</span></span><br><span class="line">expect(<span class="number">1</span>).toBeLessThanOrEqual(<span class="number">1</span>); <span class="comment">// 小于等于</span></span><br><span class="line">expect(<span class="number">0.1</span> + <span class="number">0.2</span>).toBeCloseTo(<span class="number">0.3</span>); <span class="comment">// 浮点数</span></span><br><span class="line">expect(<span class="string">&#x27;toMatch&#x27;</span>).toMatch(<span class="regexp">/to/</span>) <span class="comment">// 是否包含</span></span><br><span class="line">expect([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]).toContain(<span class="number">1</span>) <span class="comment">// 是否包含某些元素</span></span><br><span class="line">expect(<span class="function">() =&gt;</span> &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>() &#125;).toThrow(); <span class="comment">// 异常匹配</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="三、命令行工具使用"><a href="#三、命令行工具使用" class="headerlink" title="三、命令行工具使用"></a>三、命令行工具使用</h5><ol>
+<li><code>f</code><ul>
+<li>只运行上次检测测试用例失败的文件。上次正确的文件，即使修改也不会重新检查</li>
+</ul>
+</li>
+<li><code>o</code><ul>
+<li>只运行修改过的文件，需要配个git使用</li>
+</ul>
+</li>
+<li><code>p</code><ul>
+<li>输入一个正则/字符串，会检查所有匹配（包含）文件的名字</li>
+</ul>
+</li>
+<li><code>t</code><ul>
+<li>输入一个正则/字符串，会检查所有匹配（包含）的测试实例名字的文件</li>
+</ul>
+</li>
+<li><code>q</code><ul>
+<li>退出监控</li>
+</ul>
+</li>
+<li><code>enter</code><ul>
+<li>重新运行一遍</li>
+</ul>
+</li>
+</ol>
+<p><code>package.json</code>配置</p>
+<ul>
+<li><code>watchAll</code>：监控所有文件的变化</li>
+<li><code>watch</code>：每次只重新测试修改过后的文件</li>
+</ul>
+<h5 id="四、异步函数测试方法"><a href="#四、异步函数测试方法" class="headerlink" title="四、异步函数测试方法"></a>四、异步函数测试方法</h5><ul>
+<li><p>异步函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    resolve(&#123;</span><br><span class="line">      code: <span class="number">200</span>,</span><br><span class="line">      data: &#123;&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>通过返回</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&#x27;should loadData&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  expect.assertions(<span class="number">1</span>); <span class="comment">// 必须执行一个expect。否则不会等到异步函数执行完毕就测试完毕</span></span><br><span class="line">  <span class="keyword">return</span> loadData().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    expect(res.code).toBe(<span class="number">200</span>)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">test(<span class="string">&quot;fecthData3 返回结果为 404&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    expect.assertions(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> loadData().catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        expect(e.toString().indexOf(<span class="string">&quot;404&quot;</span>) &gt; -<span class="number">1</span>).toBe(<span class="literal">true</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>通过调用参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&#x27;should loadData&#x27;</span>, <span class="function">(<span class="params">done</span>) =&gt;</span> &#123;</span><br><span class="line">  loadData().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    expect(res.code).toBe(<span class="number">200</span>)</span><br><span class="line">    done(); <span class="comment">//done函数执行了即代表执行了expect</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>通过<code>resolves</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&#x27;should loadData&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> expect(loadData()).resolves.toMatchObject(&#123;</span><br><span class="line">    code: <span class="number">200</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p><code>async</code>和<code>await</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&quot;should loadData&quot;</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> loadData();</span><br><span class="line">    expect(res.data).toEqual(&#123;</span><br><span class="line">        success: <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="五、钩子函数"><a href="#五、钩子函数" class="headerlink" title="五、钩子函数"></a>五、钩子函数</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开始执行一次</span></span><br><span class="line">beforeAll(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;befaoreAll&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每个测试用例都会执行</span></span><br><span class="line">beforeEach(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;beforeEach&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每个测试用例执行后都会执行</span></span><br><span class="line">afterEach(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;afterEach&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 勾子执行完毕</span></span><br><span class="line">afterAll(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;afterAll&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="六、对测试用例进行分组"><a href="#六、对测试用例进行分组" class="headerlink" title="六、对测试用例进行分组"></a>六、对测试用例进行分组</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Counter <span class="keyword">from</span> <span class="string">&#x27;./counter.js&#x27;</span></span><br><span class="line"> </span><br><span class="line">describe(<span class="string">&#x27;测试Counter&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> counter = <span class="literal">null</span></span><br><span class="line">    beforeEach(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        counter = <span class="keyword">new</span> Counter()</span><br><span class="line">    &#125;)</span><br><span class="line"> </span><br><span class="line">    describe(<span class="string">&#x27;测试增加&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        test(<span class="string">&#x27;测试 Counter 中 addOne 方法&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            counter.addOne()</span><br><span class="line">            expect(counter.number).toBe(<span class="number">1</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">        test(<span class="string">&#x27;测试 Counter 中 addOne 方法&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            counter.addOne()</span><br><span class="line">            expect(counter.number).toBe(<span class="number">1</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line"> </span><br><span class="line">    describe(<span class="string">&#x27;测试减少&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        test(<span class="string">&#x27;测试 Counter 中 minusOne 方法&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            counter.minusOne()</span><br><span class="line">            expect(counter.number).toBe(-<span class="number">1</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">        test(<span class="string">&#x27;测试 Counter 中 minusOne 方法&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            counter.minusOne()</span><br><span class="line">            expect(counter.number).toBe(-<span class="number">1</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="七、Mock"><a href="#七、Mock" class="headerlink" title="七、Mock"></a>七、Mock</h5><ol>
+<li><p>为什么使用<code>mock</code>？</p>
+<ul>
+<li>在项目中，一个模块的方法内常常会去调用另外一个模块的方法。在单元测试中，我们可能并不需要关心内部调用的方法的执行过程和结果，只想知道它是否被正确调用即可，甚至会指定该函数的返回值</li>
+</ul>
+</li>
+<li><p><code>mock</code>的三种特性</p>
+<ul>
+<li>捕获函数调用情况</li>
+<li>设置函数返回值</li>
+<li>改变函数的内部实现</li>
+</ul>
+</li>
+<li><p><code>jest.fn()</code></p>
+<ul>
+<li><p>创建mock函数</p>
+</li>
+<li><p>如果没有定义内部实现，返回值为undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">test(<span class="string">&#x27;测试jest.fn()调用&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> mockFn = jest.fn();</span><br><span class="line">  <span class="keyword">let</span> result = mockFn(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 断言mockFn的执行后返回undefined</span></span><br><span class="line">  expect(result).toBeUndefined();</span><br><span class="line">  <span class="comment">// 断言mockFn被调用</span></span><br><span class="line">  expect(mockFn).toBeCalled();</span><br><span class="line">  <span class="comment">// 断言mockFn被调用了一次</span></span><br><span class="line">  expect(mockFn).toBeCalledTimes(<span class="number">1</span>);</span><br><span class="line">  <span class="comment">// 断言mockFn传入的参数为1, 2, 3</span></span><br><span class="line">  expect(mockFn).toHaveBeenCalledWith(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>设置返回值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jest.fn().mockReturnValue(<span class="string">&#x27;default&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><code>mock axios</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Users <span class="keyword">from</span> <span class="string">&#x27;./users&#x27;</span>;</span><br><span class="line"></span><br><span class="line">jest.mock(<span class="string">&#x27;axios&#x27;</span>);</span><br><span class="line"></span><br><span class="line">test(<span class="string">&#x27;should fetch users&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  axios.get.mockResolvedValue(<span class="string">&#x27;name&#x27;</span>); <span class="comment">//模拟实际调用axios后的返回值，所有请求都返回同样的结果</span></span><br><span class="line">  <span class="comment">// myMock.mockReturnValueOnce(10).mockReturnValueOnce(&#x27;x&#x27;)  多次调用返回的结果不同</span></span><br><span class="line">  <span class="keyword">return</span> Users.all().then(<span class="function"><span class="params">data</span> =&gt;</span> expect(data).toEqual(<span class="string">&#x27;name&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>根目录下建<code>__mocks__</code>文件夹</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// __mocks__  demo.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchData = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolved, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        resolved(</span><br><span class="line">            <span class="string">&quot;(function() &#123;return &#x27;123&#x27;&#125;)()&quot;</span></span><br><span class="line">        )</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">jest.mock(<span class="string">&#x27;./demo&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; fetchData &#125; <span class="keyword">from</span> <span class="string">&#x27;./demo&#x27;</span>; <span class="comment">//找到__mocks__下的demo.js文件</span></span><br><span class="line"><span class="keyword">const</span> &#123; getNumber &#125; = jest.requireActual(<span class="string">&#x27;./demo&#x27;</span>); <span class="comment">//找对应文件名的test文件</span></span><br><span class="line"></span><br><span class="line">test(<span class="string">&quot;测试fetchData&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> fetchData().then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        expect(<span class="built_in">eval</span>(data)).toBe(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">test(<span class="string">&quot;测试fetchData&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    expect(getNumber()).toBe(<span class="string">&quot;456&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="八、类的测试"><a href="#八、类的测试" class="headerlink" title="八、类的测试"></a>八、类的测试</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Util</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">a</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">	<span class="comment">// 逻辑异常复杂</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">b</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">	<span class="comment">// 逻辑异常复杂</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//__mocks__ util.js</span></span><br><span class="line"><span class="keyword">import</span> Util <span class="keyword">from</span> <span class="string">&#x27;./util&#x27;</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">//这里只关注a和b是否执行了即可，至于执行正确与否是util类的测试文件应该做的事情</span></span><br><span class="line"><span class="comment">//所以如果a，b函数的过程很耗费性能，那我们没必要让它们执行完，只需要模拟即可</span></span><br><span class="line"><span class="keyword">const</span> demoFunction = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">const</span> util = <span class="keyword">new</span> Util;</span><br><span class="line">    util.a(a);</span><br><span class="line">    util.b(b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> demoFunction;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">jest.mock(<span class="string">&quot;./util.js&quot;</span>);</span><br><span class="line"><span class="comment">// jest.mock 发现 util 是一个类，会自动的把类的构造函数和方法变成 jest.fn()</span></span><br><span class="line"><span class="comment">// 背后原理如下：</span></span><br><span class="line"><span class="comment">// const Util = jest.fn();</span></span><br><span class="line"><span class="comment">// Util.a = jest.fn();</span></span><br><span class="line"><span class="comment">// Util.b = jest.fn();</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 由于类的方法都是一个 jest.fn() 所以我们可以对类的方法执行做追溯</span></span><br><span class="line"><span class="keyword">import</span> demoFunction <span class="keyword">from</span> <span class="string">&#x27;./demo&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Util <span class="keyword">from</span> <span class="string">&#x27;./util&#x27;</span>;</span><br><span class="line"></span><br><span class="line">test(<span class="string">&quot;测试 demoFunction&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 要想测试demoFunction成功执行了，只需验证他调用了Util类创建实例，并且调用a，b 方法.</span></span><br><span class="line">    <span class="comment">// 但由于Util中的方法都异常复杂，全部执行，很耗性能。所以我们需要去模拟Util类</span></span><br><span class="line">    demoFunction();</span><br><span class="line">    expect(Util).toHaveBeenCalled();</span><br><span class="line">    expect(Util.mock.instances[<span class="number">0</span>].a).toHaveBeenCalled();</span><br><span class="line">    expect(Util.mock.instances[<span class="number">0</span>].b).toHaveBeenCalled();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="九、timer"><a href="#九、timer" class="headerlink" title="九、timer"></a>九、timer</h5><ul>
+<li>测试带有定时器的文件，如果设置的定时时间是几百秒呢？难道我们要等待几百秒吗？</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//timer.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (callback) =&gt; &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">		callback();</span><br><span class="line">	&#125;, <span class="number">3000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//timer.test.js</span></span><br><span class="line"><span class="keyword">import</span> timer <span class="keyword">from</span> <span class="string">&#x27;./timer&#x27;</span>;</span><br><span class="line"></span><br><span class="line">jest.useFakeTimers();</span><br><span class="line">test(<span class="string">&quot;timer 测试&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> fn = jest.fn();</span><br><span class="line">    <span class="comment">// 这样timer还是会等待定时器设置的时长再执行</span></span><br><span class="line">    timer(fn);</span><br><span class="line">    <span class="comment">// 所以必须配合下面的代码</span></span><br><span class="line">    <span class="comment">// 这种代码的意思是让timer立刻执行，我们就不必等待了</span></span><br><span class="line">    jest.runAllTimers();</span><br><span class="line">    expect(fn).toHaveBeenCalledTimes(<span class="number">1</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>如果有这种需求，定时器的嵌套。只想测试第一层的<code>timer</code>，如果使用<code>runAllTimers</code>，内层的<code>timer</code>也会直接运行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//timer.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (callback) =&gt; &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        callback();</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            callback();</span><br><span class="line">        &#125;, <span class="number">2000</span>)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> timer <span class="keyword">from</span> <span class="string">&#x27;./timer&#x27;</span>;</span><br><span class="line"></span><br><span class="line">jest.useFakeTimers();</span><br><span class="line">test(<span class="string">&quot;timer 测试&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> fn = jest.fn();</span><br><span class="line">    <span class="comment">// 这样timer还是会等待定时器设置的时长再执行</span></span><br><span class="line">    timer(fn); </span><br><span class="line">    <span class="comment">// 所以必须配合下面的代码</span></span><br><span class="line">    <span class="comment">// 这种代码的意思是让timer立刻执行，我们就不必等待了,</span></span><br><span class="line">    <span class="comment">// 只运行处于队列中的timer，没有被添加到队列中的timer不会被执行</span></span><br><span class="line">    jest.runOnlyPendingTimers();</span><br><span class="line">    expect(fn).toHaveBeenCalledTimes(<span class="number">1</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="十、snapshot-快照测试"><a href="#十、snapshot-快照测试" class="headerlink" title="十、snapshot 快照测试"></a>十、snapshot 快照测试</h5><ul>
+<li>适合测试配置文件。每次建立一个快照，下一次与上一次对比，展示差异。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> generateConfig  = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        server: <span class="string">&#x27;http://localhost&#x27;</span>,</span><br><span class="line">        port: <span class="string">&#x27;8080&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo.test.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; generateConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;./snapshot.js&#x27;</span></span><br><span class="line"> </span><br><span class="line">test(<span class="string">&#x27;测试 generateConfig&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    expect(generateConfig()).toMatchSnapshot()  <span class="comment">//会生成快照文件</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//u：更新全部快照</span></span><br><span class="line"><span class="comment">//也可以先用i，进入调试模式，一个个展示决定是否用 u 更新</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//行内快照的写法  -&gt; 需要安装 prettier</span></span><br><span class="line">expect(generateConfig()).toMatchInlineSnapshot();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="十一、jest测试dom节点"><a href="#十一、jest测试dom节点" class="headerlink" title="十一、jest测试dom节点"></a>十一、jest测试dom节点</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo.js</span></span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">&#x27;jquery&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> addDivToBody = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	$(<span class="string">&#x27;body&#x27;</span>).append(<span class="string">&#x27;&lt;div/&gt;&#x27;</span>)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> addDivToBody;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo.test.js</span></span><br><span class="line"><span class="keyword">import</span> addDivToBody <span class="keyword">from</span> <span class="string">&#x27;./demo&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">&#x27;jquery&#x27;</span>;</span><br><span class="line"></span><br><span class="line">test(<span class="string">&#x27;测试 addDivToBody&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	addDivToBody();</span><br><span class="line">	addDivToBody();</span><br><span class="line">	expect($(<span class="string">&#x27;body&#x27;</span>).find(<span class="string">&#x27;div&#x27;</span>).length).toBe(<span class="number">2</span>);</span><br><span class="line">	<span class="built_in">console</span>.log($(<span class="string">&#x27;body&#x27;</span>).find(<span class="string">&#x27;div&#x27;</span>).length);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 jquery 创建 dom 是在 node 环境下运行的，node 是不具备 dom的。之所以能够操作 dom,是因为 jest 在 node 环境下自己模拟了一套 dom 的 api, 叫做 jsDom</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    周周
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2021/01/17/jest/" title="Jest">http://example.com/2021/01/17/jest/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Jest/" rel="tag"><i class="fa fa-tag"></i> Jest</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/17/sudo%E4%B8%8Esu/" rel="next" title="sudo 与 su">
+                <i class="fa fa-chevron-left"></i> sudo 与 su
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/17/TDD%E4%B8%8EBDD/" rel="prev" title="TDD 与 BDD">
+                TDD 与 BDD <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/console-log-zhouying" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E3%80%81jest%E4%BC%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">一、jest优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E3%80%81jest%E5%8C%B9%E9%85%8D%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">二、jest匹配器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">三、命令行工具使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">四、异步函数测试方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">五、钩子函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%AF%B9%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%BF%9B%E8%A1%8C%E5%88%86%E7%BB%84"><span class="nav-number">6.</span> <span class="nav-text">六、对测试用例进行分组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%83%E3%80%81Mock"><span class="nav-number">7.</span> <span class="nav-text">七、Mock</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%B1%BB%E7%9A%84%E6%B5%8B%E8%AF%95"><span class="nav-number">8.</span> <span class="nav-text">八、类的测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B9%9D%E3%80%81timer"><span class="nav-number">9.</span> <span class="nav-text">九、timer</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%81%E3%80%81snapshot-%E5%BF%AB%E7%85%A7%E6%B5%8B%E8%AF%95"><span class="nav-number">10.</span> <span class="nav-text">十、snapshot 快照测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81jest%E6%B5%8B%E8%AF%95dom%E8%8A%82%E7%82%B9"><span class="nav-number">11.</span> <span class="nav-text">十一、jest测试dom节点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周周</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">26.1k</span>
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
